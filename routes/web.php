@@ -3,12 +3,25 @@
 // Auth
 Route::get('/login', 'AuthController@login');
 Route::get('/register', 'AuthController@register');
+Route::post('/cek_login', 'AuthController@cek_login');
 
-// Admin
-Route::get('/admin', 'AdminController@index');
+//Masyarakat
+Route::middleware(['authMasyarakat'])->group(function() {
 
-// Petugas
-Route::get('/petugas', 'PetugasController@index');
+	Route::get('/masyarakat', 'MasyarakatController@index');	
 
-// Masyarakat
-Route::get('/masyarakat', 'MasyarakatController@index');
+});
+
+//Petugas
+Route::middleware(['authPetugas'])->group(function() {
+
+	Route::get('/petugas', 'PetugasController@index');	
+
+});
+
+//Admin
+Route::middleware(['authAdmin'])->group(function() {
+
+	Route::get('/admin', 'AdminController@index');	
+
+});

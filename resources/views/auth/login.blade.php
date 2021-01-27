@@ -28,13 +28,14 @@
   <div class="login-box-body">
     <p class="login-box-msg">Silahkan login untuk melanjutkan</p>
 
-    <form action="#" method="post">
+    <form action="{{url ('cek_login')}}" method="post">
+      {{csrf_field()}}
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="text" class="form-control" placeholder="Username" required="" name="username">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" required="" name="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">

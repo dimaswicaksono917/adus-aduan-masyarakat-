@@ -13,7 +13,7 @@ class CreateTablePengaduan extends Migration
      */
     public function up()
     {
-        Schema::create('table_pengaduan', function (Blueprint $table) {
+        Schema::create('pengaduan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nik', 16);
             $table->text('isi_laporan', 35);
