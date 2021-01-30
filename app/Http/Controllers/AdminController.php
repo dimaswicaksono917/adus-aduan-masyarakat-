@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
 use Illuminate\Support\Facades\DB;
 use Hash;
 use Illuminate\Http\Request;

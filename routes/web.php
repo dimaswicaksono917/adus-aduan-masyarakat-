@@ -10,6 +10,8 @@ Route::get('/masyarakat', 'MasyarakatController@index');
 
 //Petugas
 Route::get('/petugas', 'PetugasController@index');	
+Route::get('/petugas/data-petugas', 'PetugasController@data_petugas');	
+Route::get('/petugas/data-masyarakat', 'PetugasController@data_masyarakat');	
 
 //Admin
 Route::get('/admin', 'AdminController@index');	
