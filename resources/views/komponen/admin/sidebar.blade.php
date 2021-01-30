@@ -4,7 +4,7 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <img src="{{url('')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
         <p>Rizal Rohman</p>
@@ -16,18 +16,17 @@
       <li class="header">MAIN MENU</li>
       <li><a href=""><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
       <li class="treeview">
-        <a href="#">
-          <i class="fa fa-pie-chart"></i>
+        <a href="{{url('admin')}}">
+          <i class="fa fa-database"></i>
           <span>Data Master</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-          <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-          <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-          <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+          <li><a href="{{url('admin/data-admin')}}"><i class="fa fa-circle-o"></i> Data Admin</a></li>
+          <li><a href="{{url('admin/data-petugas')}}"><i class="fa fa-circle-o"></i> Data Petugas</a></li>
+          <li><a href="{{url('admin/data-masyarakat')}}"><i class="fa fa-circle-o"></i> Data Masyarakat</a></li>
         </ul>
       </li>
     </ul>
