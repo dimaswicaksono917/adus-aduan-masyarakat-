@@ -7,6 +7,7 @@ Route::post('/cek_login', 'AuthController@cek_login');
 
 //Masyarakat
 Route::get('/masyarakat', 'MasyarakatController@index');	
+Route::get('/masyarakat/data-pengaduan', 'MasyarakatController@data_pengaduan');	
 
 //Petugas
 Route::get('/petugas', 'PetugasController@index');	
@@ -30,3 +31,5 @@ Route::get('/admin/data-masyarakat', 'AdminController@data_masyarakat');
 Route::post('/admin/post_add_masyarakat', 'AdminController@post_add_masyarakat');	
 Route::post('/admin/post_edit_masyarakat/', 'AdminController@post_edit_masyarakat');	
 Route::get('/admin/delete_masyarakat/{nik}', 'AdminController@delete_masyarakat');	
+
+Route::get('/admin/pengaduan/pengaduan-baru', 'AdminController@pengaduan_baru');	

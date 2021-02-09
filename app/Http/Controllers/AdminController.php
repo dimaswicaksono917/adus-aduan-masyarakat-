@@ -129,7 +129,18 @@ class AdminController extends Controller
         return redirect('admin/data-masyarakat')->with('alert', 'delete_sukses');
     }
 
+    public function pengaduan_baru()
+    {
+        /* Status Pengaduan
+        1 = terkirim
+        2 = diproses
+        3 = selesai
+        4 = ditolak
+        */
 
+        $result = DB::table('pengaduan')->where('status', '=', 1)->get();
+        return view('admin.pengaduan-baru', ['result' => $result])->with('alert', 'nothing');
+    }
 
 
     
