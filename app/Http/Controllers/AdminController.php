@@ -142,6 +142,49 @@ class AdminController extends Controller
         return view('admin.pengaduan-baru', ['result' => $result])->with('alert', 'nothing');
     }
 
+    public function detail_pengaduan($id)
+    {
+        $result = DB::table('pengaduan')->where('id', '=', $id)->first();
+        return view('admin.detail-pengaduan', ['result' => $result]);
+    }
+
+    public function action_pengaduan(Request $request)
+    {
+        $id_pengaduan = $request->id_pengaduan;
+        $action = $request->action;
+
+
+        if ($action == "Terima") {
+            // Ubah Status Pengaduan 2
+            // Redirect ke Data Pengaduan
+            $values = [
+                'status' => 2
+            ];
+            DB::table('pengaduan')->where('id', '=', $id_pengaduan)->update($values);
+            return redirect('/admin/pengaduan/pengaduan-baru');
+
+        }
+        elseif ($action == "Terima & Tanggapi") {
+            // Ubah Status Pengaduan 2
+            // Redirect ke Form Tanggapi
+            $values = [
+                'status' => 2
+            ];
+            DB::table('pengaduan')->where('id', '=', $id_pengaduan)->update($values);
+            $data = DB::table('pengaduan')->where('id', '=', $id_pengaduan)->first();
+            return redirect('/admin/pengaduan/tanggapi/'.$id_pengaduan);
+        }
+        else{
+            // Ubah Status Pengaduan 3
+            // Redirect ke Data Pengaduan
+            $values = [
+                'status' => 4
+            ];
+            DB::table('pengaduan')->where('id', '=', $id_pengaduan)->update($values);
+            return redirect('/admin/pengaduan/pengaduan-baru');
+        }
+    }
+
 
     
 

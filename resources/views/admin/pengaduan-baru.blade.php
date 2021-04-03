@@ -25,20 +25,15 @@
         <div class="box">
           <!-- /.box-header -->
 
-          <div class="box-header">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTambah">
-              Tambah Data
-            </button>
-
-          </div>  
           <div class="box-body">
 
             <table id="example1" class="table table-bordered table-striped text-center">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Nama Lengkap</th>
-                  <th>Nomber Telepon</th>
+                  <th>NIK</th>
+                  <th>Judul Laporan</th>
+                  <th>Tanggal</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -47,11 +42,11 @@
                 @foreach($result as $row)
                 <tr>
                   <td>{{ $no }}</td>
-                  <td>{{ $row->display_name }}</td>
-                  <td>{{ $row->tlp }}</td>
+                  <td>{{ $row->nik }}</td>
+                  <td>{{ $row->judul_laporan }}</td>
+                  <td>{{ $row->created_at }}</td>
                   <td>
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEdit{{ $row->id }}"><i class="fa fa-pencil"></i></button>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalHapus{{ $row->id }}"><i class="fa fa-trash"></i></button>
+                    <a href="{{ url('/admin/pengaduan/detail').'/'.$row->id }}" class="btn btn-success btn-sm"><i class="fa fa-info"></i></a>
                   </td>
                 </tr>
                 <?php $no++ ?>
@@ -64,7 +59,6 @@
         <!-- /.box -->
       </div>
       <!-- /.col -->
-      @include('admin.modal-crud-admin')
     </div>
 
     <!-- /.row -->

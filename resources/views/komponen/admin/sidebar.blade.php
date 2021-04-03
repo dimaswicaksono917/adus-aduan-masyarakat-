@@ -40,6 +40,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="{{url('admin/pengaduan/pengaduan-baru')}}"><i class="fa fa-circle-o"></i> Pengaduan Baru</a></li>
+          <li><a href="{{url('admin/pengaduan/pengaduan-diproses')}}"><i class="fa fa-circle-o"></i> Pengaduan Diproses</a></li>
           <li><a href="{{url('admin/data-petugas')}}"><i class="fa fa-circle-o"></i> Riwayat</a></li>
         </ul>
       </li>

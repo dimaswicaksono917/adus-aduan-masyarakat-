@@ -40,5 +40,8 @@ Route::group(['middleware' => ['authAdmin']], function () {
 	Route::post('/admin/post_edit_masyarakat/', 'AdminController@post_edit_masyarakat');	
 	Route::get('/admin/delete_masyarakat/{nik}', 'AdminController@delete_masyarakat');	
 
+
 	Route::get('/admin/pengaduan/pengaduan-baru', 'AdminController@pengaduan_baru');	
+	Route::get('/admin/pengaduan/detail/{id}', 'AdminController@detail_pengaduan');	
+	Route::post('/admin/pengaduan/action_pengaduan', 'AdminController@action_pengaduan');	
 });	

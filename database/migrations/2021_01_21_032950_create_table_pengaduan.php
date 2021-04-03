@@ -16,6 +16,7 @@ class CreateTablePengaduan extends Migration
         Schema::create('pengaduan', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nik', 16);
+            $table->string('judul_laporan', 35);
             $table->text('isi_laporan', 35);
             $table->string('foto', 255);
             $table->integer('status');
