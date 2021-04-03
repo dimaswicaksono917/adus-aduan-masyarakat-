@@ -5,6 +5,7 @@ Route::get('/login', 'AuthController@login');
 Route::get('/register', 'AuthController@register');
 Route::post('/cek_login', 'AuthController@cek_login');
 Route::get('/logout', 'AuthController@logout');
+Route::post('/postregister', 'AuthController@postregister');
 
 //Masyarakat
 Route::group(['middleware' => ['authMasyarakat']], function () {

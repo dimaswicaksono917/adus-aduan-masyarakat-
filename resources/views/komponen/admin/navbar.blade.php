@@ -31,7 +31,7 @@
               <!-- Menu Body -->
               <!-- Menu Footer-->
               <li class="user-footer">
-                <a href="#" class="btn btn-default btn-flat col-lg-12">Sign out</a>
+                <a href="{{ url('logout') }}" class="btn btn-default btn-flat col-lg-12">Sign out</a>
               </li>
             </ul>
           </li>

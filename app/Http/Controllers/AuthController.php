@@ -89,9 +89,25 @@ class AuthController extends Controller
 
     }
 
+    public function postregister(Request $req)
+    {
+        DB::table('masyarakat')->insert([
+            'nik' => $req->nik,
+            'display_name' => $req->display_name,
+            'username' => $req->username,
+            'password' => Hash::make($req->password),
+            'tlp' => $req->tlp,
+        ]);
+
+        return redirect('/login');
+    }
+
+
     public function logout()
     {
         Session::flush();
         return redirect('/login');
     }
+
+    
 }
