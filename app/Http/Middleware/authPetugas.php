@@ -17,7 +17,7 @@ class authPetugas
     public function handle($request, Closure $next)
     {
         if (Session::get('hasLogin')) {
-            if (Session::get('role') == 'petugas') {
+            if (Session::get('role') == '2') {
                 return $next($request);
             } else {
                 return redirect('/login');

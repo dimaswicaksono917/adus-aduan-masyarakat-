@@ -17,7 +17,7 @@ class authAdmin
     public function handle($request, Closure $next)
     {
         if (Session::get('hasLogin')) {
-            if (Session::get('role') == 'admin') {
+            if (Session::get('role') == '1') {
                 return $next($request);
             } else {
                 return redirect('/login');

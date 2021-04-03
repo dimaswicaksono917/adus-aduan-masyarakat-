@@ -16,7 +16,7 @@ class authMasyarakat
     public function handle($request, Closure $next)
     {
         if (Session::get('hasLogin')) {
-            if (Session::get('role') == 'masyarakat') {
+            if (Session::get('nik') == true) {
                 return $next($request);
             } else {
                 return redirect('/login');

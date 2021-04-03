@@ -4,6 +4,7 @@
 Route::get('/login', 'AuthController@login');
 Route::get('/register', 'AuthController@register');
 Route::post('/cek_login', 'AuthController@cek_login');
+Route::get('/logout', 'AuthController@logout');
 
 //Masyarakat
 Route::get('/masyarakat', 'MasyarakatController@index');	
