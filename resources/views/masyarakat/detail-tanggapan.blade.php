@@ -1,19 +1,19 @@
 @extends('layouts.app')
-@section('title', 'Tanggapi Pengaduan')
+@section('title', 'Detail Tanggapan')
 @section('content')
-@include('komponen.admin.navbar')
-@include('komponen.admin.sidebar')
+@include('komponen.masyarakat.navbar')
+@include('komponen.masyarakat.sidebar')
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Tanggapi Pengaduan
+      Detail Tanggapan
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-newspaper-o"></i> Pengaduan</a></li>
-      <li class="active">Tanggapi Pengaduan</li>
+      <li class="active">Tanggapan</li>
     </ol>
   </section>
 
@@ -26,26 +26,26 @@
         <div class="box">
           <!-- /.box-header -->
           <div class="box-header">
-            <h3>Formulir Pengaduan</h3>
+            <h3>Data Pengaduan</h3>
           </div>
           <div class="box-body">
 
-            <form action="{{ url('/admin/pengaduan/action_pengaduan') }}" method="post">
+            <form action="{{ url('/masyarakat/pengaduan/action_pengaduan') }}" method="post">
               {{csrf_field()}}
               <div class="row">
                 <div class="form-group has-feedback col-md-6">
                   <label>Nomber Induk Kependudukan</label>
-                  <input type="text" class="form-control" value="{{ $result->nik }}" readonly="">
-                  <input type="text" name="id_pengaduan" hidden="" value="{{ $result->id }}">
+                  <input type="text" class="form-control" value="{{ $data_pengaduan->nik }}" readonly="">
+                  <input type="text" name="id_pengaduan" hidden="" value="{{ $data_pengaduan->id }}">
                 </div>
                 <div class="form-group has-feedback col-md-6">
                   <label>Tanggal Laporan</label>
-                  <input type="text" class="form-control" readonly="" value="{{ $result->created_at }}">
+                  <input type="text" class="form-control" readonly="" value="{{ $data_pengaduan->created_at }}">
                 </div>
               </div>
               <div class="form-group">
                 <label>Judul Pengaduan</label>
-                <input type="text" class="form-control" readonly="" value="{{ $result->judul_laporan }}">
+                <input type="text" class="form-control" readonly="" value="{{ $data_pengaduan->judul_laporan }}">
               </div>           
               <div class="form-group">
                 <label>Foto Bukti</label><br>
@@ -53,7 +53,7 @@
               </div>
               <div class="form-group">
                 <label>Isi Pengaduan</label>
-                <textarea class="form-control" rows="10" readonly="">{{ $result->isi_laporan }}</textarea>
+                <textarea class="form-control" rows="10" readonly="">{{ $data_pengaduan->isi_laporan }}</textarea>
               </div>
             </form>
             
@@ -67,30 +67,30 @@
       <div class="col-xs-12">
         <div class="box">
           <!-- /.box-header -->
+          <div class="box-header">
+            <h3>Tanggapan Admin</h3>
+          </div>
           <div class="box-body">
 
-            <form action="{{ url('/admin/pengaduan/posttanggapan') }}" method="post">
+            <form action="{{ url('/masyarakat/pengaduan/posttanggapan') }}" method="post">
               {{csrf_field()}}
               <div class="row">
                 <div class="form-group has-feedback col-md-6">
                   <label>Nama Admin</label>
-                  <input type="text" class="form-control" value="{{ Session::get('display_name') }}" readonly="">
-                  <input type="text" name="id_pengaduan" hidden="" value="{{ $result->id }}">
+                  <input type="text" class="form-control" value="{{ $data_admin->display_name }}" readonly="">
+                  <input type="text" name="id_pengaduan" hidden="" value="">
                 </div>
                 <div class="form-group has-feedback col-md-6">
                   <label>Tanggal Ditanggapi</label>
-                  <?php 
-                  $tanggal = date('l, d-m-y');
-                   ?>
-                  <input type="text" class="form-control" readonly="" value="{{ $tanggal }}">
+                  <input type="text" class="form-control" readonly="" value="{{ $data_tanggapan->created_at }}">
                 </div>
               </div>
               <div class="form-group">
                 <label>Isi Tanggapan</label>
-                <textarea class="form-control" rows="15" name="tanggapan"></textarea>
+                <textarea class="form-control" rows="15" name="tanggapan" readonly="">{{ $data_tanggapan->tanggapan }}</textarea>
               </div>
               <div class="box-footer">
-                <button class="btn btn-primary col-md-12">Kirim</button>
+                <a href="{{ url('/masyarakat/data-pengaduan') }}" class="btn btn-primary btn-sm col-md-12">Tutup</a>
               </div>
               
                 

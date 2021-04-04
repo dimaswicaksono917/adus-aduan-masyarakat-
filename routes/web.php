@@ -1,6 +1,7 @@
 <?php
 
 // Auth
+
 Route::get('/login', 'AuthController@login');
 Route::get('/register', 'AuthController@register');
 Route::post('/cek_login', 'AuthController@cek_login');
@@ -9,8 +10,13 @@ Route::post('/postregister', 'AuthController@postregister');
 
 //Masyarakat
 Route::group(['middleware' => ['authMasyarakat']], function () {
+	Route::get('/', 'MasyarakatController@index');
 	Route::get('/masyarakat', 'MasyarakatController@index');	
 	Route::get('/masyarakat/data-pengaduan', 'MasyarakatController@data_pengaduan');	    
+
+	Route::get('/masyarakat/buat-pengaduan-baru', 'MasyarakatController@buat_pengaduan');
+	Route::post('/masyarakat/postpengaduan', 'MasyarakatController@postpengaduan');
+	Route::get('/masyarakat/pengaduan/detail-tanggapan/{id}', 'MasyarakatController@detail_tanggapan');
 });
 
 
