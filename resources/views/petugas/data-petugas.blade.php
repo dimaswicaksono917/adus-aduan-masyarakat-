@@ -44,7 +44,7 @@
                   <td>{{ $row->display_name }}</td>
                   <td>{{ $row->tlp }}</td>
                   <td>
-                    <a href="" class="btn btn-success btn-sm"><i class="fa fa-whatsapp"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone={{ $row->tlp }}" class="btn btn-success btn-sm"><i class="fa fa-whatsapp"></i></a>
                   </td>
                 </tr>
                 <?php $no++ ?>

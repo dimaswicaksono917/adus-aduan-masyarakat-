@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Data Masyarakat')
+@section('title', 'Pengaduan Baru')
 @section('content')
 @include('komponen.petugas.navbar')
 @include('komponen.petugas.sidebar')
@@ -9,11 +9,11 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Data Masyarakat
+      Data Pengaduan Baru
     </h1>
     <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Data Master</a></li>
-      <li class="active">Data Masyarakat</li>
+      <li><a href="#"><i class="fa fa-newspaper-o"></i> Pengaduan</a></li>
+      <li class="active">Pengaduan Baru</li>
     </ol>
   </section>
 
@@ -24,6 +24,7 @@
         @include('komponen.alert')
         <div class="box">
           <!-- /.box-header -->
+
           <div class="box-body">
 
             <table id="example1" class="table table-bordered table-striped text-center">
@@ -31,8 +32,8 @@
                 <tr>
                   <th>#</th>
                   <th>NIK</th>
-                  <th>Nama Lengkap</th>
-                  <th>Nomber Telepon</th>
+                  <th>Judul Laporan</th>
+                  <th>Tanggal</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -42,10 +43,10 @@
                 <tr>
                   <td>{{ $no }}</td>
                   <td>{{ $row->nik }}</td>
-                  <td>{{ $row->display_name }}</td>
-                  <td>{{ $row->tlp }}</td>
+                  <td>{{ $row->judul_laporan }}</td>
+                  <td>{{ $row->created_at }}</td>
                   <td>
-                    <a href="https://api.whatsapp.com/send?phone={{ $row->tlp }}" class="btn btn-success btn-sm"><i class="fa fa-whatsapp"></i></a>
+                    <a href="{{ url('/petugas/pengaduan/detail').'/'.$row->id }}" class="btn btn-success btn-sm"><i class="fa fa-info"></i></a>
                   </td>
                 </tr>
                 <?php $no++ ?>

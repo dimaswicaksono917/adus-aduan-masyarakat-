@@ -19,6 +19,13 @@ Route::group(['middleware' => ['authPetugas']], function () {
 	Route::get('/petugas', 'PetugasController@index');	
 	Route::get('/petugas/data-petugas', 'PetugasController@data_petugas');	
 	Route::get('/petugas/data-masyarakat', 'PetugasController@data_masyarakat');	
+
+	Route::get('/petugas/pengaduan/pengaduan-baru', 'PetugasController@pengaduan_baru');	
+	Route::get('/petugas/pengaduan/detail/{id}', 'PetugasController@detail_pengaduan');		
+	Route::post('/petugas/pengaduan/action_pengaduan', 'PetugasController@action_pengaduan');
+	Route::get('/petugas/pengaduan/pengaduan-diproses', 'PetugasController@pengaduan_diproses');	
+	Route::get('/petugas/pengaduan/tanggapi/{id}', 'PetugasController@tanggapi');	
+	Route::post('/petugas/pengaduan/posttanggapan', 'PetugasController@posttanggapan');	
 });
 
 //Admin

@@ -24,8 +24,16 @@
                 <img src="{{url('')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Rizal Rohman
-                  <small class="">Administrator</small>
+                  {{Session::get('display_name')}}
+                  <small class="">
+                  @if(Session::get('role') == 1)
+                  Administrator
+                  @elseif(Session::get('role') == 2)
+                  Petugas
+                  @else
+                  Masyarakat
+                  @endif
+                  </small>
                 </p>
               </li>
               <!-- Menu Body -->
