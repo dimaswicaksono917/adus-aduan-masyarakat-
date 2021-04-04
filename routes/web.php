@@ -44,4 +44,7 @@ Route::group(['middleware' => ['authAdmin']], function () {
 	Route::get('/admin/pengaduan/pengaduan-baru', 'AdminController@pengaduan_baru');	
 	Route::get('/admin/pengaduan/detail/{id}', 'AdminController@detail_pengaduan');	
 	Route::post('/admin/pengaduan/action_pengaduan', 'AdminController@action_pengaduan');	
+	Route::get('/admin/pengaduan/pengaduan-diproses', 'AdminController@pengaduan_diproses');
+	Route::get('/admin/pengaduan/tanggapi/{id}', 'AdminController@tanggapi');	
+	Route::post('/admin/pengaduan/posttanggapan', 'AdminController@posttanggapan');	
 });	

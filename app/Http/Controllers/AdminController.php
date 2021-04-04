@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -185,6 +186,45 @@ class AdminController extends Controller
         }
     }
 
+    public function pengaduan_diproses()
+    {
+        /* Status Pengaduan
+        1 = terkirim
+        2 = diproses
+        3 = selesai
+        4 = ditolak
+        */
+
+        $result = DB::table('pengaduan')->where('status', '=', 2)->get();
+        return view('admin.pengaduan-diproses', ['result' => $result])->with('alert', 'nothing');
+    }
+
+    public function tanggapi($id)
+    {
+        $result = DB::table('pengaduan')->where('id', '=', $id)->first();
+        return view('admin.tanggapi-pengaduan', ['result' => $result]);
+    }
+
+    public function posttanggapan(Request $request)
+    {
+        // Ubah Status Pengaduan 3
+        // Create Row tabel tanggapan
+        $id_pengaduan = $request->id_pengaduan;
+        $values_update = [
+                'status' => 3
+            ];
+        DB::table('pengaduan')->where('id', '=', $id_pengaduan)->update($values_update);
+
+        DB::table('tanggapan')->insert([
+            'id_pengaduan' => $id_pengaduan,
+            'id_user' => Session::get('id'),
+            'tanggapan' => $request->tanggapan,
+        ]);
+
+        return redirect('/admin/pengaduan/pengaduan-baru');
+
+
+    }
 
     
 
