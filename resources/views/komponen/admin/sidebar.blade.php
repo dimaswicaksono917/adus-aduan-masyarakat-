@@ -7,14 +7,14 @@
         <img src="{{url('')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p>Rizal Rohman</p>
+        <p>{{ Session::get('display_name') }}</p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN MENU</li>
-      <li><a href=""><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+      <li><a href="{{url('admin')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
       <li class="treeview">
         <a href="{{url('admin')}}">
           <i class="fa fa-database"></i>
@@ -41,7 +41,6 @@
         <ul class="treeview-menu">
           <li><a href="{{url('admin/pengaduan/pengaduan-baru')}}"><i class="fa fa-circle-o"></i> Pengaduan Baru</a></li>
           <li><a href="{{url('admin/pengaduan/pengaduan-diproses')}}"><i class="fa fa-circle-o"></i> Pengaduan Diproses</a></li>
-          <li><a href="{{url('admin/data-petugas')}}"><i class="fa fa-circle-o"></i> Riwayat</a></li>
         </ul>
       </li>
 

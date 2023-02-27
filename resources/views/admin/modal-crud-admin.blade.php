@@ -31,7 +31,7 @@
             <input type="text" name="tlp" required="" class="form-control" placeholder="Masukan Nomber Telepon">
           </div>
 
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -69,11 +69,9 @@
           </div>
 
           <div class="form-group">
-            <label>Nomber Telepon</label>
+            <label>Nomor Telepon</label>
             <input type="text" name="tlp" required="" class="form-control" placeholder="Masukan Nomber Telepon" value="{{$row->tlp}}">
           </div>
-
-        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

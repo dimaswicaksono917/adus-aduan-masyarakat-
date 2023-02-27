@@ -32,8 +32,7 @@
                 <tr>
                   <th>#</th>
                   <th>NIK</th>
-                  <th>Judul Laporan</th>
-                  <th>Tanggal</th>
+                  <th>Judul Laporan</th>]
                   <th>Action</th>
                 </tr>
               </thead>
@@ -44,7 +43,6 @@
                   <td>{{ $no }}</td>
                   <td>{{ $row->nik }}</td>
                   <td>{{ $row->judul_laporan }}</td>
-                  <td>{{ $row->created_at }}</td>
                   <td>
                     <a href="{{ url('/admin/pengaduan/tanggapi').'/'.$row->id }}" class="btn btn-success btn-sm"><i class="fa fa-paper-plane"></i></a>
                   </td>

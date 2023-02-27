@@ -46,17 +46,17 @@
               <div class="form-group">
                 <label>Judul Pengaduan</label>
                 <input type="text" class="form-control" readonly="" value="{{ $result->judul_laporan }}">
-              </div>           
+              </div>
               <div class="form-group">
                 <label>Foto Bukti</label><br>
-                <img width="100%" src="{{ url('') }}/jalan_rusak.jpg">
+                <img width="100%" src="{{asset($result->foto)}}">
               </div>
               <div class="form-group">
                 <label>Isi Pengaduan</label>
                 <textarea class="form-control" rows="10" readonly="">{{ $result->isi_laporan }}</textarea>
               </div>
             </form>
-            
+
           </div>
           <!-- /.box-body -->
         </div>
@@ -79,7 +79,7 @@
                 </div>
                 <div class="form-group has-feedback col-md-6">
                   <label>Tanggal Ditanggapi</label>
-                  <?php 
+                  <?php
                   $tanggal = date('l, d-m-y');
                    ?>
                   <input type="text" class="form-control" readonly="" value="{{ $tanggal }}">
@@ -92,12 +92,12 @@
               <div class="box-footer">
                 <button class="btn btn-primary col-md-12">Kirim</button>
               </div>
-              
-                
 
-                
+
+
+
             </form>
-            
+
           </div>
           <!-- /.box-body -->
         </div>

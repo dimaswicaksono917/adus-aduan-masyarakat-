@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Hash;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 
 class MasyarakatController extends Controller
@@ -31,9 +33,21 @@ class MasyarakatController extends Controller
     		'nik' => Session::get('nik'),
     		'judul_laporan' => $request->judul_laporan,
     		'isi_laporan' => $request->isi_laporan,
-    		// 'foto' => $request->foto,
+    		'foto' => $request->foto,
     		'status' => 1
     	]);
+
+        if ($request->hasFile('foto')) {
+            $fileName = time() . '.' . $request->foto->getClientOriginalName();
+            $validated['foto'] = 'upload/foto/'.$fileName;
+
+            // move  file
+            $request->foto->move(public_path('upload/foto'), $fileName);
+
+        }
+        
+
+        // dd($request->all());
 
     	return redirect('/masyarakat/data-pengaduan');
     }
@@ -45,4 +59,11 @@ class MasyarakatController extends Controller
     	$data_admin = DB::table('user')->where('id', '=', $data_tanggapan->id_user)->first();
     	return view('masyarakat.detail-tanggapan', ['data_pengaduan' => $data_pengaduan, 'data_tanggapan' => $data_tanggapan, 'data_admin' => $data_admin]);
     }
+
+    public function delete_pengaduan($id)
+    {
+        DB::table('pengaduan')->delete($id);
+    }
+
+
 }

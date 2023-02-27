@@ -11,12 +11,12 @@ class AuthController extends Controller
 {
     public function login()
     {
-    	return view('auth.login');
+    	return view('auth.logins')->with('alert', 'login_sukses');
     }
 
     public function register()
     {
-    	return view('auth.register');
+    	return view('auth.registers')->with('alert', 'regist_sukses');
     }
 
     public function cek_login(Request $req)
@@ -44,9 +44,9 @@ class AuthController extends Controller
                     'tlp' => $admin->tlp,
                     'role' => 1,
                 ]);
-                return redirect('/admin');
+                return redirect('/admin')->with('alert', 'login_sukses');
             }
-            
+
         }
 
         elseif ($petugas && $petugas->role == 2) {
@@ -62,7 +62,7 @@ class AuthController extends Controller
                     'tlp' => $petugas->tlp,
                     'role' => 2,
                 ]);
-                return redirect('/petugas');
+                return redirect('/petugas')->with('alert', 'login_sukses');
             }
 
         }
@@ -78,14 +78,14 @@ class AuthController extends Controller
                     'username' => $masyarakat->username,
                     'tlp' => $masyarakat->tlp,
                 ]);
-                return redirect('/masyarakat');
+                return redirect('/masyarakat')->with('alert', 'login_sukses');
             }
-        }    
+        }
 
         // Username dan Password salah
         else{
             return redirect('/login');
-        }    
+        }
 
     }
 
@@ -99,7 +99,7 @@ class AuthController extends Controller
             'tlp' => $req->tlp,
         ]);
 
-        return redirect('/login');
+        return redirect('/login')->with('alert', 'regist_sukses');
     }
 
 
@@ -109,5 +109,5 @@ class AuthController extends Controller
         return redirect('/login');
     }
 
-    
+
 }

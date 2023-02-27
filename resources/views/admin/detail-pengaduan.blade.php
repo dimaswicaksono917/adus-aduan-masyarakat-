@@ -33,15 +33,11 @@
                   <input type="text" class="form-control" value="{{ $result->nik }}" readonly="">
                   <input type="text" name="id_pengaduan" hidden="" value="{{ $result->id }}">
                 </div>
-                <div class="form-group has-feedback col-md-6">
-                  <label>Tanggal Laporan</label>
-                  <input type="text" class="form-control" readonly="" value="{{ $result->created_at }}">
-                </div>
               </div>
               <div class="form-group">
                 <label>Judul Pengaduan</label>
                 <input type="text" class="form-control" readonly="" value="{{ $result->judul_laporan }}">
-              </div>           
+              </div>
               <div class="form-group">
                 <label>Foto Bukti</label><br>
                 <img width="100%" src="{{ url('') }}/jalan_rusak.jpg">
@@ -61,12 +57,12 @@
               <div class="box-footer">
                 <button class="btn btn-primary col-md-12">Kirim</button>
               </div>
-              
-                
 
-                
+
+
+
             </form>
-            
+
           </div>
           <!-- /.box-body -->
         </div>
